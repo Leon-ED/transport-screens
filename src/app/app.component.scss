@@ -1,6 +1,6 @@
 :host {
   --aspect-ratio: 16 / 9;
-  --border-size: 10vh;
+  --border-size: min(10vh, 10vw);
   --height: 60vh;
 }
 .content {
@@ -13,7 +13,6 @@
   --aspect-ratio: 21 / 9;
   --border-size: 8vh;
   --height: 50vh;
-
 }
 .screen.super-wide {
   --aspect-ratio: 32 / 9;
@@ -31,23 +30,54 @@
   --height: 50vh;
 }
 
-
 .screen {
   aspect-ratio: var(--aspect-ratio);
+  max-height: var(--height);
+  max-width: calc(90% - var(--border-size) * 2);
   height: var(--height);
+  width: auto;
   position: relative;
   border-radius: 5vh;
+  background-color: #121318;
   outline: 0.5vh solid #c0c0c0;
   border: var(--border-size) solid black;
-}
-.screen {
-  background-color: #121318;
-  box-shadow: inset 0 0 3vh rgba(0, 0, 0, 0.9);
+  cursor: none;
+  box-shadow:
+    0 0.5vh 1vh rgba(255, 255, 255, 0.05),
+    0 3vh 8vh rgba(0, 0, 0, 0.5),
+    0 6vh 15vh rgba(0, 0, 0, 0.25),
+    inset 0 0 3vh rgba(0, 0, 0, 0.9);
 }
 
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.04) 15%,
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 0 4vh rgba(0, 0, 0, 0.5),
+    inset 0 0 8vh rgba(0, 0, 0, 0.3);
+}
 .iframe {
   width: 100%;
   height: 100%;
+  border: none;
+  border-radius: 0.5vh;
+  container-type: size;
 }
 .logos {
   display: flex;
