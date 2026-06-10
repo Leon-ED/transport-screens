@@ -24,12 +24,12 @@ export class AppComponent {
       // running: this.sanitizer.bypassSecurityTrustResourceUrl(
       //   'https://departs.leon.gp/screen?screenId=rer&stopId=fr-idf_IDFM:412697&lineId=fr-idf_IDFM:C01742&filterType=branch&branchHash=Retour&customDestinations=UGFyaXMlMkMlMjBTdC1HZXJtYWluLWVuLUxheWUlMEFQb2lzc3klMkMlMjBDZXJneQ=='
       // ),
-       running: this.sanitizer.bypassSecurityTrustResourceUrl(
-      'http://localhost:59990/screen'
-      ),
-      // running: this.sanitizer.bypassSecurityTrustResourceUrl(
-      //   'https://siel-tram.leon.gp/?stop=73654&line=C01390&invertedColumns=false&branches=Aller&mode=AUTO'
+      //  running: this.sanitizer.bypassSecurityTrustResourceUrl(
+      // 'http://localhost:59990/screen'
       // ),
+      running: this.sanitizer.bypassSecurityTrustResourceUrl(
+        'https://multimodal.leon.gp/?stop=fr-idf_IDFM:71663&forceSingleColumn=false&stopName=&hideHeader=false&hideTrafficPanel=false&enablePagination=false&showLinesStatus=false'
+      ),
       off: this.sanitizer.bypassSecurityTrustResourceUrl(''),
       broken: this.sanitizer.bypassSecurityTrustResourceUrl(
         'https://departs.leon.gp/screen?screenId=none'

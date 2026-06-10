@@ -1,5 +1,5 @@
 <main class="content">
-  <div class="screen classic" [ngClass]="status">
+  <div class="screen" [ngClass]="status">
     <div class="led-container">
       <div class="led led-red" (click)="previousStatus(); $event.stopPropagation()"></div>
       <div class="led led-green" (click)="nextStatus(); $event.stopPropagation()"></div>
